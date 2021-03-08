@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% macro displayQuote(quotes) %}
+<div class="row">
+    <div class="col-md-12 mx-auto bq">
+        <blockquote class="blockquote blockquote-custom p-5 shadow rounded">
+            <div class="blockquote-custom-icon shadow-sm"><i class="fa fa-quote-left text-white"></i></div>
+            <p class="mb-0 mt-2 font-italic">{{ quotes.quote }}.</p>
+            <footer class="blockquote-footer pt-4 mt-4 border-top">Quote by
+                <cite title="quote author">{{ quotes.author }}</cite>
+                <br>
+            </footer>
+
+        </blockquote>
+    </div>
+</div>

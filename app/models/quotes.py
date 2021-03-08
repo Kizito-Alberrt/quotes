@@ -1,6 +1,6 @@
 class Quotes:
     '''
-    quotes class to define quotes objects
+    Quotes class to define quotes objects
     '''
 
     def __init__(self, author, id, quote, permalink ):

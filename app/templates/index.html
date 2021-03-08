@@ -1,0 +1,8 @@
+{% extends 'base.html'%}
+{% from 'quote_macro.html' import displayQuote %}
+
+{% block content %}
+<div class="container">
+    {{ displayQuote(quotes) }}
+</div>
+{% endblock %}
