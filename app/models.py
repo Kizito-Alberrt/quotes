@@ -32,9 +32,17 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(255),index = True, unique = True)
     email = db.Column(db.String(255), unique = True, index = True)
     password_hash = db.Column(db.String(155))
-    image_file = db.Column(db.String())
+    image_file = db.Column(db.String(255), nullable = False, default = 'default.jpg')
     blog = db.relationship('Blog', backref = 'user', lazy = 'dynamic')
     comment = db.relationship('Comment', backref = 'user', lazy = 'dynamic')
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
 
     @property
     def password(s):
@@ -79,7 +87,7 @@ class Comment(db.Model):
     __tablename__ = 'comments'
 
     id = db.Column(db.Integer, primary_key = True)
-    comment = db.Column(db.String)
+    comment = db.Column(db.Text())
     postedDate = db.Column(db.DateTime, default = datetime.now())
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     blog_id = db.Column(db.Integer, db.ForeignKey('blogs.id'))
@@ -89,11 +97,11 @@ class Comment(db.Model):
         db.session.commit()
 
     @classmethod
-    def get_comments(cls, id):
+    def get_comments(cls, blog_id):
         '''
         Takes in blo and retrieves all comments for that blog
         '''
-        comments = Comment.query.filter_by(blog_id = id)
+        comments = Comment.query.filter_by(blog_id = blog_id).all()
         return comments
 
     def delete_comment(self):

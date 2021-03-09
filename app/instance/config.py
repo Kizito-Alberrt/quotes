@@ -1,1 +1,0 @@
-QUOTES_API = ' GET http://quotes.stormconsultancy.co.uk/random.json'

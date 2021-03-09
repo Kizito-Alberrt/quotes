@@ -1,3 +1,4 @@
+
 import os 
 
 class Config:
@@ -15,11 +16,12 @@ class Config:
     UPLOAD_PHOTOS_DEST = 'app/static/photos'
 
     # EMAIL Configuration
-    MAIL_SERVER = 'smtp.googlemail.com'
-    MAIL_PORT = 587
-    MAIL_USE_TLS = True
-    MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
-    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
+    MAIL_SERVER = 'smtp.gmail.com'
+    MAIL_PORT = 465
+    MAIL_USE_TLS = False
+    MAIL_USE_SSL = True
+    MAIL_USERNAME = 'jeffersongakuya@gmail.com'
+    MAIL_PASSWORD = 'jifewry4f438fshdf8898'
 
     # SIMPLE MDE configuration
     SIMPLEMDE_JS_IIFE = True

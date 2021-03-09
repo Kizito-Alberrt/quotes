@@ -6,7 +6,7 @@ from flask_wtf import FlaskForm
 from flask_wtf.file import FileAllowed, FileField
 from wtforms import StringField, PasswordField, SubmitField, TextAreaField, SelectField
 from wtforms.validators import Required, Length, Email, EqualTo, ValidationError
-from ..models import Comment, User
+from ..models import User
 
 class UpdateProfile(FlaskForm):
     username = StringField('Username', validators = [Required(), Length(min = 2, max = 20)])
@@ -37,7 +37,7 @@ class ResetForm(FlaskForm):
 
 class ResetPassword(FlaskForm):
     password = PasswordField('Password', validators = [Required()])
-    confirm_password = PasswordField('Confirm Password', validators = [Required(), EqualTo()])
+    confirm_password = PasswordField('Confirm Password', validators = [Required(), EqualTo('Password')])
     submit = SubmitField('Reset Password')
 
 class BlogForm(FlaskForm):
