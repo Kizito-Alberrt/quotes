@@ -1,4 +1,3 @@
-
 from flask.app import Flask
 from flask.helpers import total_seconds
 from flask_login import current_user

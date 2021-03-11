@@ -13,11 +13,11 @@ from flask import render_template, flash, request, url_for, abort, redirect
 
 
 @main.route('/')
-@main.route('/home')
+@main.route('/index')
 def index():
     quotes = get_random_quote()
-    blogs = Blog.query.all()
-    return render_template('index.html', quotes = quotes, blog = blogs, user = current_user)
+    
+    return render_template('index.html', quotes = quotes,  user = current_user)
 
 def save_picture(form_picture):
     random_hex = secrets.token_hex(8)
